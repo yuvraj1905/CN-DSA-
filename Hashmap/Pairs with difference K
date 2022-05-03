@@ -1,0 +1,24 @@
+You are given with an array of integers and an integer K. You have to find and print the count of all such pairs which have difference K.
+Note: Take absolute difference between the elements of the array.
+
+
+
+#include<bits/stdc++.h>
+int getPairsWithDifferenceK(int *arr, int n, int k) {
+	unordered_map<int,int>ans;
+    int pairCount=0;
+    for(int i=0;i<n;i++){
+		if(ans.count(arr[i]+k)>0){
+            pairCount+=ans[arr[i]+k];
+        }
+        if(!k==0){
+            if(ans.count(arr[i]-k)>0)
+            {
+                pairCount+=ans[arr[i]-k];
+            }
+        }
+        ans[arr[i]]++;
+        	
+    }
+    return pairCount;
+}
