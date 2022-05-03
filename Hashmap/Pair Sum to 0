@@ -1,0 +1,17 @@
+Given a random integer array A of size N. Find and print the count of pair of elements in the array which sum up to 0.
+Note: Array A can contain duplicate elements as well.
+
+
+#include<bits/stdc++.h>
+int pairSum(int *arr, int n) {
+	unordered_map<int,int>ans;
+    int pairCount=0;
+    for(int i=0;i<n;i++){
+		if(ans.count(-(arr[i]))>0){
+            pairCount+=ans[-arr[i]];
+        }
+        ans[arr[i]]++;
+    }
+    return pairCount;
+    
+}
